@@ -1,4 +1,3 @@
-
     <?php
     /**
      * Created by PhpStorm.
@@ -8,9 +7,9 @@
      */
     date_default_timezone_set("Asia/Shanghai");//时区
 
-    $dsn = 'mysql:dbname=personalVote;host=127.0.0.1';//定义数据源
+    $dsn = 'mysql:dbname=learn;host=127.0.0.1';//定义数据源
     $user = 'root';//用户名
-    $passWord = '';//密码
+    $passWord = '123456';//密码
     try{
         $db = new PDO($dsn, $user,$passWord);//连接数据库
         $db -> query('set names utf8');//设置编码
@@ -27,5 +26,4 @@
 //    $result = $re -> fetchAll();
 //    echo "<pre>";//格式化数组
 //    print_r($result);
-    ?>
 
