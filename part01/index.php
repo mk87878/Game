@@ -47,14 +47,15 @@ if(isset($_POST['11signUp'])){//当获取到提交动作
         var userName = $('input[name="userName"]').val();
         var name = $('input[name="name"]').val();
         var tel = $('input[name="tel"]').val();
-        var passWord = $('input[name="PassWord"]').val();
-        console.log(userName,name,tel,passWord);
+        var passWord = $('input[type="Password"]').val();
+        console.log(passWord);
+        return false;
 //        正则表达式检测
         var checkUserName = /^[a-zA-Z0-9\-]+@\w+(\.\w+)+$/;
         var checkName = /[a-zA-Z]/;
         var checkTel = /^[0-9]{11}$/;
         var checkPassWord = /^[a-zA-Z0-9]{8,100}$/;
-        var checkRepeat = /(.).*\1/g;
+        var checkRepeat = /(.).*\1/g;//重复内容检测
 //        判断是否输入内容是否符合要求
         if(!checkUserName.test(userName)){
             alert("仅支持邮箱作为用户名");
