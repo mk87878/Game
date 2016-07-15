@@ -15,7 +15,7 @@
 
 <?php
 include_once 'config/config.php';//连接数据库
-if(isset($_POST['11signUp'])){//当获取到提交动作
+if(isset($_POST['signUp'])){//当获取到提交动作
     $userName = $_POST['userName'];
     $name = $_POST['name'];
     $tel = $_POST['tel'];
@@ -48,8 +48,6 @@ if(isset($_POST['11signUp'])){//当获取到提交动作
         var name = $('input[name="name"]').val();
         var tel = $('input[name="tel"]').val();
         var passWord = $('input[type="Password"]').val();
-        console.log(passWord);
-        return false;
 //        正则表达式检测
         var checkUserName = /^[a-zA-Z0-9\-]+@\w+(\.\w+)+$/;
         var checkName = /[a-zA-Z]/;
