@@ -87,8 +87,7 @@ if(isset($_POST['signIn'])){//当获取登录到提交动作
         $('#signIn').show();
         $('#signUp').hide();
     });
-
-
+    
     /**
      *注册表单验证
      */
