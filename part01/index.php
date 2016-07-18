@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,7 +20,6 @@
 <?php
 include_once 'config/config.php';//连接数据库
 /**
- *
  * 注册
  */
 if(isset($_POST['signUp'])){//当获取到注册提交动作
@@ -31,7 +31,7 @@ if(isset($_POST['signUp'])){//当获取到注册提交动作
     $result = $db -> query($sql);
     $row = $result -> rowCount();
     if($row){
-        echo "<script>alert('注册成功');location.href='xxx.php';</script>";
+        echo "<script>alert('注册成功');location.href='index.php';</script>";
     }else{
         echo "<script>alert('注册失败');history.back();</script>";
     }
@@ -47,7 +47,8 @@ if(isset($_POST['signIn'])){//当获取登录到提交动作
     $result = $db -> query($sql);
     $row = $result -> rowCount();
     if($row){
-        echo "<script>alert('登录成功');location.href='xxx.php';</script>";
+        $_SESSION['loginUser'] = $userName;
+        echo "<script>alert('登录成功');location.href='profile.php';</script>";
     }else{
         echo "<script>alert('登录失败');history.back();</script>";
     }
