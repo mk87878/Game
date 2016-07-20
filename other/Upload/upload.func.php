@@ -3,7 +3,7 @@
  * Author: http://hizip.net
  * Date: 16/7/19
  * Time: 15:12
- */ 
+ */
 
 $fileInfo = $_FILES['uploadFile'];//文件信息放入$fileInfo
 function upload($fileInfo,$imgFlag = true,$allowExt = array('jpeg','jpg','gif','png'),$maxSize = 2097152,$uploadPath = 'uploads'){
