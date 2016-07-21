@@ -40,17 +40,27 @@ if(isset($_POST['signUp'])){//当获取到注册提交动作
  *
  * 登录
  */
-if(isset($_POST['signIn'])){//当获取登录到提交动作
+//当获取登录到提交动作
+if(isset($_POST['signIn'])){
     $userName = $_POST['userName'];
     $passWord = md5($_POST['passWord']);//获取所有提交的信息
     $sql = "SELECT * FROM users WHERE userName = '$userName' AND passWord = '$passWord'";//sql插入语句
     $result = $db -> query($sql);
     $row = $result -> rowCount();
+    //判断用户密码是否正确
     if($row){
-        $_SESSION['loginUser'] = $userName;
-        echo "<script>alert('登录成功');location.href='profile.php';</script>";
+        $loginSql = "SELECT * FROM users WHERE userName = '$userName' ";
+        $loginRe = $db -> query($loginSql);
+        $loginInfo = $loginRe -> fetch();
+        //判断用户是否通过审核
+        if($loginInfo['status']){
+            $_SESSION['loginUser'] = $userName;
+            echo "<script>location.href='profile.php';</script>";
+        }else{
+            echo "<script>alert('未通过审核用户,暂时无法登录');history.back();</script>";
+        }
     }else{
-        echo "<script>alert('登录失败');history.back();</script>";
+        echo "<script>alert('用户登录失败');history.back();</script>";
     }
 }
 ?>
