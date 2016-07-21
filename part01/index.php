@@ -22,6 +22,7 @@ include_once 'config/config.php';//连接数据库
 /**
  * 注册
  */
+
 if(isset($_POST['signUp'])){//当获取到注册提交动作
     $userName = $_POST['userName'];
     $name = $_POST['name'];

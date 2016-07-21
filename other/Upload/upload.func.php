@@ -6,6 +6,15 @@
  */
 
 $fileInfo = $_FILES['uploadFile'];//文件信息放入$fileInfo
+/**
+ * Author: http://hizip.net
+ * @param $fileInfo 表单传入的文件信息
+ * @param bool $imgFlag 是否开启真实图片检测
+ * @param array $allowExt 允许上传的图片后缀
+ * @param int $maxSize 最大上传文件
+ * @param string $uploadPath 上传保存的目录
+ * @return array 返回上传后响应信息数组
+ */
 function upload($fileInfo,$imgFlag = true,$allowExt = array('jpeg','jpg','gif','png'),$maxSize = 2097152,$uploadPath = 'uploads'){
     //判断文件上传错误信息
     if($fileInfo['error'] > 0){//当错误信息为0时,为上传成功
@@ -73,6 +82,7 @@ function upload($fileInfo,$imgFlag = true,$allowExt = array('jpeg','jpg','gif','
     }
     $uploadStatus = 1;
     return array(
+        'destination' => $destination,
         'newName' => $uniName,
         'size' => $fileInfo['size'],
         'status' => $uploadStatus,
